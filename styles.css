@@ -14,7 +14,7 @@ body {
 header {
     background: #37475a; /* Un azul oscuro */
     color: #ffffff;
-    padding: 15px 10%;
+    padding: 15px 5%; /* Espaciado responsivo */
     text-align: center;
 }
 h1 {
@@ -25,7 +25,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px 10%;
+    padding: 20px 5%; /* Espaciado responsivo */
     flex: 1; /* Permite que esta sección ocupe el espacio restante */
 }
 .car-item {
@@ -34,7 +34,8 @@ h1 {
     border-radius: 8px; /* Bordes redondeados más suaves */
     margin: 10px;
     padding: 20px;
-    width: 300px;
+    width: 300px; /* Ancho fijo para las tarjetas */
+    max-width: 90%; /* Asegura que las tarjetas no excedan el 90% del ancho de la pantalla */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
     transition: transform 0.3s, box-shadow 0.3s; /* Animación fluida */
 }
