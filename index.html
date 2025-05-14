@@ -1,65 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<style>body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        font-family: sans-serif;
-    -webkit-font-smoothing: auto;
-    -moz-font-smoothing: auto;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-text-size-adjust: 100%;
-    }
-
-    header {
-        background: #333;
-        color: #fff;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    header nav ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    header nav ul li {
-        display: inline;
-        margin: 0 15px;
-    }
-
-    header nav ul li a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    .auto {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .auto img {
-        max-width: 
-    }
-    
-    </style>
-    
-   
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +15,7 @@
             <ul>
                 <li><a href="#autos">Autos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="#carrito">Carrito (<span id="carrito-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
@@ -90,7 +30,7 @@
                 <p>Modelo: Corolla</p>
                 <p>Año: 2020</p>
                 <p>Precio: $20,000</p>
-                <button>Agregar al Carrito</button>
+                <button onclick="agregarAlCarrito('Auto 1', 20000)">Agregar al Carrito</button>
             </div>
             <div class="auto">
                 <img src="https://via.placeholder.com/150" alt="Auto 2">
@@ -99,7 +39,7 @@
                 <p>Modelo: Fiesta</p>
                 <p>Año: 2019</p>
                 <p>Precio: $15,000</p>
-                <button>Agregar al Carrito</button>
+                <button onclick="agregarAlCarrito('Auto 2', 15000)">Agregar al Carrito</button>
             </div>
             <div class="auto">
                 <img src="https://via.placeholder.com/150" alt="Auto 3">
@@ -108,9 +48,8 @@
                 <p>Modelo: Civic</p>
                 <p>Año: 2021</p>
                 <p>Precio: $22,000</p>
-                <button>Agregar al Carrito</button>
+                <button onclick="agregarAlCarrito('Auto 3', 22000)">Agregar al Carrito</button>
             </div>
-            <!-- Agrega más autos según sea necesario -->
         </section>
 
         <section id="contacto">
@@ -131,13 +70,16 @@
 
         <section id="carrito">
             <h2>Carrito de Compras</h2>
-            <p>No hay autos en el carrito.</p>
-            <!-- Aquí se mostrarían los autos agregados al carrito -->
+            <div id="carrito-items">
+                <p>No hay autos en el carrito.</p>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2023 Compra de Autos. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
