@@ -1,43 +1,63 @@
 <!DOCTYPE html>
-<title>Sitio de venta</title>
-<style>
-header{
-background-color: gray;
-
-
-
-}
-body{
-background-color: black;
-
-
-
-}
-footer{
-background-color: gray;
-
-
-}
-
-
-
-
-</style>
-
-<header>
- <h1>Page</h1>
-<p>first try</p>
-<p> second try</p>
-</header>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de Autos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <h1>Body</h1>
+    <header>
+        <h1>Compra de Autos</h1>
+        <nav>
+            <ul>
+                <li><a href="#autos">Autos Disponibles</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section id="autos">
+            <h2>Autos Disponibles</h2>
+            <div class="auto">
+                <h3>Auto 1</h3>
+                <p>Marca: Toyota</p>
+                <p>Modelo: Corolla</p>
+                <p>Año: 2020</p>
+                <p>Precio: $20,000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="auto">
+                <h3>Auto 2</h3>
+                <p>Marca: Ford</p>
+                <p>Modelo: Fiesta</p>
+                <p>Año: 2019</p>
+                <p>Precio: $15,000</p>
+                <button>Comprar</button>
+            </div>
+            <!-- Agrega más autos según sea necesario -->
+        </section>
 
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2023 Compra de Autos. Todos los derechos reservados.</p>
+    </footer>
 </body>
-<footer>
- <li>footer</li>
-
-
-
-</footer>
+</html>
