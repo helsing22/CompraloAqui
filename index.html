@@ -41,6 +41,22 @@
             <input type="text" id="address" placeholder="Tu dirección aquí" required>
             <button id="sendMessageButton" onclick="sendMessage()">Enviar mensaje por WhatsApp</button>
         </div>
+        
+        <!-- Nuevo formulario para validar dirección postal -->
+        <div class="address-validation">
+            <h3>Validar Dirección Postal</h3>
+            <label for="street">Calle:</label>
+            <input type="text" id="street" placeholder="Ej. Calle 23" required>
+            
+            <label for="homeNumber">Número de Hogar:</label>
+            <input type="text" id="homeNumber" placeholder="Ej. 45" required>
+            
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" placeholder="Ej. La Habana" required>
+            
+            <button id="validateAddressButton" onclick="validateAddress()">Validar Dirección</button>
+            <p id="validationMessage" style="color: red;"></p>
+        </div>
     </main>
     <footer>
         <p>&copy; 2023 Venta de Coches</p>
