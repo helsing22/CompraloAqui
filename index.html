@@ -13,25 +13,25 @@
     <main>
         <div class="car-list">
             <div class="car-item">
-                <img src="Images\Corolla22.jpg" alt="Toyota Corolla 2022 LE">
+                <img src="Images/Corolla22.jpg" alt="Toyota Corolla 2022 LE">
                 <h2>Toyota Corolla 2022 LE</h2>
                 <p>Descripción del Coche 1. Es un coche muy interesante y atractivo.</p>
                 <p>Precio: <span class="car-price" data-price="8000">$8,000</span></p>
-                <button onclick="calculateTotal('Toyota Corolla 2022 LE', 8000)">Calcular precio total</button>
+                <button onclick="addToCart('Toyota Corolla 2022 LE', 8000)">Agregar al carrito</button>
             </div>
             <div class="car-item">
-                <img src="Images\Corolla21.jpg" alt="Toyota Corolla 2021 L">
+                <img src="Images/Corolla21.jpg" alt="Toyota Corolla 2021 L">
                 <h2>Toyota Corolla 2021 L</h2>
                 <p>Descripción del Toyota Corolla 2021 L. Este coche es ideal para la familia.</p>
                 <p>Precio: <span class="car-price" data-price="11000">$11,000</span></p>
-                <button onclick="calculateTotal('Toyota Corolla 2021 L', 11000)">Calcular precio total</button>
+                <button onclick="addToCart('Toyota Corolla 2021 L', 11000)">Agregar al carrito</button>
             </div>
             <div class="car-item">
                 <img src="Images/Honda16.jpg" alt="Honda 2016 Pilot Touring">
                 <h2>Honda 2016 Pilot Touring</h2>
                 <p>Descripción del Coche 2. Este coche es ideal para la familia.</p>
                 <p>Precio: <span class="car-price" data-price="10000">$10,000</span></p>
-                <button onclick="calculateTotal('Honda 2016 Pilot Touring', 10000)">Calcular precio total</button>
+                <button onclick="addToCart('Honda 2016 Pilot Touring', 10000)">Agregar al carrito</button>
             </div>
             <!-- Agrega más coches aquí -->
         </div>
@@ -39,6 +39,7 @@
             <h3>Información de Entrega</h3>
             <label for="address">Ingresa tu dirección:</label>
             <input type="text" id="address" placeholder="Tu dirección aquí" required>
+            <button id="sendMessageButton" onclick="sendMessage()">Enviar mensaje por WhatsApp</button>
         </div>
     </main>
     <footer>
@@ -47,7 +48,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
