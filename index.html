@@ -1,5 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    header nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .auto {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .auto img {
+        max-width: 
+    }
+    
+    </style>
+    
+   
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +60,14 @@
 </head>
 <body>
     <header>
-        <h1>Compra de Autos</h1>
+        <div class="logo">
+            <h1>Compra de Autos</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="#autos">Autos Disponibles</a></li>
+                <li><a href="#autos">Autos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#carrito">Carrito</a></li>
             </ul>
         </nav>
     </header>
@@ -21,20 +76,31 @@
         <section id="autos">
             <h2>Autos Disponibles</h2>
             <div class="auto">
+                <img src="https://via.placeholder.com/150" alt="Auto 1">
                 <h3>Auto 1</h3>
                 <p>Marca: Toyota</p>
                 <p>Modelo: Corolla</p>
                 <p>Año: 2020</p>
                 <p>Precio: $20,000</p>
-                <button>Comprar</button>
+                <button>Agregar al Carrito</button>
             </div>
             <div class="auto">
+                <img src="https://via.placeholder.com/150" alt="Auto 2">
                 <h3>Auto 2</h3>
                 <p>Marca: Ford</p>
                 <p>Modelo: Fiesta</p>
                 <p>Año: 2019</p>
                 <p>Precio: $15,000</p>
-                <button>Comprar</button>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="auto">
+                <img src="https://via.placeholder.com/150" alt="Auto 3">
+                <h3>Auto 3</h3>
+                <p>Marca: Honda</p>
+                <p>Modelo: Civic</p>
+                <p>Año: 2021</p>
+                <p>Precio: $22,000</p>
+                <button>Agregar al Carrito</button>
             </div>
             <!-- Agrega más autos según sea necesario -->
         </section>
@@ -53,6 +119,12 @@
                 
                 <button type="submit">Enviar</button>
             </form>
+        </section>
+
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            <p>No hay autos en el carrito.</p>
+            <!-- Aquí se mostrarían los autos agregados al carrito -->
         </section>
     </main>
 
