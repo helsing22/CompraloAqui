@@ -1,20 +1,24 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Amazon Ember', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
 }
 header {
-    background: #35424a;
+    background: #232f3e;
     color: #ffffff;
-    padding: 10px 0;
+    padding: 15px 10%;
     text-align: center;
+}
+h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 .car-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 10%;
 }
 .car-item {
     background: #ffffff;
@@ -24,19 +28,50 @@ header {
     padding: 20px;
     width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación fluida */
+}
+.car-item:hover {
+    transform: translateY(-5px); /* Eleva el elemento al pasar el mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .car-item img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s; /* Animación de la imagen */
+}
+.car-item:hover img {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+p {
+    font-size: 1em;
+    color: #555555;
 }
 button {
-    background: #5cb85c;
+    background: #ffa41c;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.3s; /* Animación fluida */
+    width: 100%;
 }
 button:hover {
-    background: #4cae4c;
+    background: #ff8c00;
+    transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #232f3e;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
