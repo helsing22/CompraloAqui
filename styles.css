@@ -2,11 +2,11 @@ body {
     font-family: 'Amazon Ember', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #3b3b3b;
 }
 header {
-    background: #232f3e;
-    color: #ffffff;
+    background: #ffc400;
+    color: #000000;
     padding: 15px 10%;
     text-align: center;
 }
@@ -21,8 +21,8 @@ h1 {
     padding: 20px 10%;
 }
 .car-item {
-    background: #ffffff;
-    border: 1px solid #dddddd;
+    background: #5f5f5f;
+    border: 1px solid #ff8800;
     border-radius: 5px;
     margin: 10px;
     padding: 20px;
