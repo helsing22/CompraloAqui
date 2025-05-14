@@ -1,12 +1,18 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el border no afecten el ancho total */
+}
 body {
     font-family: 'Amazon Ember', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #3b3b3b;
+    background-color: #f4f4f4; /* Color de fondo más suave */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
 }
 header {
-    background: #ffc400;
-    color: #000000;
+    background: #37475a; /* Un azul oscuro */
+    color: #ffffff;
     padding: 15px 10%;
     text-align: center;
 }
@@ -19,25 +25,26 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px 10%;
+    flex: 1; /* Permite que esta sección ocupe el espacio restante */
 }
 .car-item {
-    background: #5f5f5f;
-    border: 1px solid #ff8800;
-    border-radius: 5px;
+    background: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados más suaves */
     margin: 10px;
     padding: 20px;
     width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
     transition: transform 0.3s, box-shadow 0.3s; /* Animación fluida */
 }
 .car-item:hover {
     transform: translateY(-5px); /* Eleva el elemento al pasar el mouse */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer hover */
 }
 .car-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px; /* Bordes redondeados para la imagen */
     transition: transform 0.3s; /* Animación de la imagen */
 }
 .car-item:hover img {
@@ -46,13 +53,14 @@ h1 {
 h2 {
     font-size: 1.5em;
     margin: 10px 0;
+    color: #333; /* Color del texto del título más oscuro */
 }
 p {
     font-size: 1em;
-    color: #ffffff;
+    color: #666; /* Color del texto de la descripción más suave */
 }
 button {
-    background: #ffa41c;
+    background: #ff9900; /* Un naranja más suave */
     color: white;
     border: none;
     padding: 10px;
@@ -63,15 +71,27 @@ button {
     width: 100%;
 }
 button:hover {
-    background: #ff8c00;
+    background: #e68a00; /* Un naranja más oscuro al pasar el mouse */
     transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el mouse */
 }
 footer {
     text-align: center;
     padding: 20px 0;
-    background: #ffc400;
-    color: #000000;
+    background: #37475a; /* Mismo azul oscuro que el encabezado */
+    color: #ffffff;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .car-item {
+        width: 90%; /* Aumenta el ancho en pantallas más pequeñas */
+    }
+    h1 {
+        font-size: 2em; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+    h2 {
+        font-size: 1.25em; /* Reduce el tamaño de los títulos de los coches */
+    }
 }
