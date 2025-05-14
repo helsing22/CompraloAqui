@@ -1,14 +1,15 @@
 * {
     box-sizing: border-box; /* Asegura que el padding y el border no afecten el ancho total */
 }
+html, body {
+    height: 100%; /* Asegura que html y body ocupen el 100% de la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+}
 body {
     font-family: 'Amazon Ember', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4; /* Color de fondo más suave */
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+    flex-direction: column; /* Organiza los elementos en columna */
 }
 header {
     background: #37475a; /* Un azul oscuro */
@@ -79,8 +80,6 @@ footer {
     padding: 20px 0;
     background: #37475a; /* Mismo azul oscuro que el encabezado */
     color: #ffffff;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 /* Estilos responsivos */
