@@ -35,12 +35,22 @@
             </div>
             <!-- Agrega más coches aquí -->
         </div>
+        <!--Contenido del carrito-->
+        <div class="cart-info">
+            <h3>Contenido del Carrito</h3>
+            <ul id="cartItemsList"></ul>
+            <p id="totalPrice">Precio Total: $0</p>
+        </div>
+       
+       
         <div class="delivery-info">
             <h3>Información de Entrega</h3>
             <label for="address">Ingresa tu dirección:</label>
             <input type="text" id="address" placeholder="Tu dirección aquí" required>
             <button id="sendMessageButton" onclick="sendMessage()">Enviar mensaje por WhatsApp</button>
         </div>
+        
+
         
         <!-- Nuevo formulario para validar dirección postal -->
         <div class="address-validation">
