@@ -167,14 +167,23 @@ main {
   transform: scale(1.02);
 }
 /* Pie de Página */
+/* Estilos para el footer */
 footer {
-  background-color: #131921;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-  font-size: 15px;
-  letter-spacing: 0.5px;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+.whatsapp-icon {
+    font-size: 1.5rem;
+    color: #25d366;
+    margin-right: 0.5rem;
+}
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
 }
 /* Carrito de Compras - Ventana Completa */
 #cart {
