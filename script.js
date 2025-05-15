@@ -76,6 +76,7 @@ function actualizarCartUI() {
   const cartDiv = document.getElementById('cart');
   const cartItemsDiv = document.getElementById('cart-items');
   const cartTotalP = document.getElementById('cart-total');
+  
   // Limpiar el contenido previo en el contenedor de items
   cartItemsDiv.innerHTML = '';
   // Si hay productos en el carrito
@@ -112,10 +113,10 @@ function actualizarCartUI() {
 function obtenerDespachoInfo() {
   const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
   if (deliveryType === 'home') {
-    const direcion = document.getElementById('direcion').value.trim();
+    // Asegúrate de que el id del input de dirección en el HTML sea "Dirección" (tal como se usa acá)
+    const direccion = document.getElementById('Dirección').value.trim();
     const numero = document.getElementById('numero').value.trim();
-
-    return `Entregar en el hogar: ${direcion}, ${numero}`;
+    return `Entregar en el hogar: ${direccion}, ${numero}`;
   } else {
     return 'Recoger en la tienda';
   }
@@ -133,7 +134,7 @@ function finalizarCompra() {
   const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
   const despacho = obtenerDespachoInfo();
   const mensaje = `Pedido:%0A${detalleProductos}%0ATotal: $${total}%0ADespacho: ${despacho}`;
-  const waNumber = "13057761543"; // Número de WhatsApp formateado sin símbolos
+  const waNumber = "13057761543"; // Número de WhatsApp sin símbolos
   const url = `https://wa.me/${waNumber}?text=${mensaje}`;
   window.open(url, '_blank');
 }
