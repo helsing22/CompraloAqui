@@ -80,25 +80,43 @@ function sendMessage() {
         return;
     }
     
+    const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+    let address = '';
+    
+    if (deliveryMethod === 'delivery') {
     if (!isAddressValid) {
         alert('Por favor, valida tu dirección antes de enviar el mensaje.');
         return;
     }
-    
     const street = document.getElementById('street')?.value?.trim();
     const homeNumber = document.getElementById('homeNumber')?.value?.trim();
     const city = document.getElementById('city')?.value?.trim();
+        address = `\nDirección de entrega: ${street} ${homeNumber}, ${city}`;
+    }
     
-    const fullAddress = `${street} ${homeNumber}, ${city}`;
-    
-    let message = 'Hola, estoy interesado en los siguientes electrodomésticos:\n';
+    let message = 'Hola, estoy interesado en los siguientes productos:\n\n';
     cart.forEach(item => {
         message += `${item.name} - Precio: ${item.price}\n`;
     });
-    message += `Mi dirección es: ${fullAddress}`;
+    
+    message += `\nMétodo de entrega: ${deliveryMethod === 'pickup' ? 'Recoger en tienda' : 'Entrega a domicilio'}`;
+    if (address) message += address;
     
     const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
+// Agregar evento para mostrar/ocultar el formulario de dirección
+document.addEventListener('DOMContentLoaded', function() {
+    const deliveryOptions = document.getElementsByName('deliveryMethod');
+    const addressForm = document.getElementById('deliveryAddressForm');
+    
+    deliveryOptions.forEach(option => {
+        option.addEventListener('change', function() {
+            addressForm.style.display = this.value === 'delivery' ? 'grid' : 'none';
+            if (this.value === 'pickup') isAddressValid = true;
+            else isAddressValid = false;
+        });
+    });
+});
 // Cargar los electrodomésticos cuando la página se carga
 document.addEventListener('DOMContentLoaded', loadAppliances);

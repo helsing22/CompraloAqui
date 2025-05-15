@@ -75,17 +75,21 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-.address-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-input[type="text"] {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #e0e0e0;
+.store-info {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--light-gray);
     border-radius: 8px;
-    transition: border-color 0.3s ease;
+}
+.delivery-options {
+    margin-bottom: 1.5rem;
+}
+.delivery-options label {
+    display: block;
+    margin: 0.5rem 0;
+}
+.delivery-options input[type="radio"] {
+    margin-right: 0.5rem;
 }
 input[type="text"]:focus {
     border-color: var(--secondary-color);

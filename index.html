@@ -21,7 +21,19 @@
         </div>
         <div class="address-validation">
             <h3>Validación de Dirección</h3>
-            <div class="address-form">
+            <div class="store-info">
+                <p><strong>Dirección de la tienda:</strong> 123 Calle Principal, Ciudad, Estado</p>
+            </div>
+            <div class="delivery-options">
+                <h4>Método de entrega:</h4>
+                <label>
+                    <input type="radio" name="deliveryMethod" value="pickup" checked> Recoger en tienda
+                </label>
+                <label>
+                    <input type="radio" name="deliveryMethod" value="delivery"> Entregar en mi dirección
+                </label>
+            </div>
+            <div class="address-form" id="deliveryAddressForm" style="display: none;">
                 <label for="street">Calle:</label>
                 <input type="text" id="street" required>
                 
@@ -34,7 +46,6 @@
                 <button onclick="validateAddress()">Validar Dirección</button>
             </div>
         </div>
-        <div class="send-message">
             <button onclick="sendMessage()">Enviar Mensaje por WhatsApp</button>
         </div>
     </main>
