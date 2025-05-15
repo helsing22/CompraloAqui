@@ -1,70 +1,97 @@
-/* Estilos básicos para la estructuración de la página */
+/* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #EAEDED;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
 }
+/* Cabecera inspirada en Amazon */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+  background-color: #131921;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+/* Barra de navegación con estética de Amazon */
 nav {
-  background-color: #444;
-  padding: 10px;
-  text-align: center;
+  background-color: #232F3E;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
 }
 nav a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  margin: 0 15px;
+  margin-right: 15px;
+  font-size: 14px;
 }
+nav a:hover {
+  text-decoration: underline;
+}
+/* Sección principal donde se muestran los productos */
 main {
-  margin: 20px auto;
   max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
 }
+/* Vista en cuadrícula de productos */
 #lista-productos {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+/* Tarjeta de cada producto (se inspira en los cards de Amazon) */
 .producto {
-  border: 1px solid #ddd;
-  padding: 15px;
-  flex: 1 1 calc(33% - 20px);
+  background-color: white;
+  border: 1px solid #DDD;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #fafafa;
+  height: 100%;
 }
 .producto img {
-  max-width: 150px;
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
   margin-bottom: 10px;
 }
 .producto h3 {
+  font-size: 18px;
   margin: 10px 0 5px 0;
+  color: #0F1111;
 }
 .producto p {
+  font-size: 14px;
+  color: #565959;
   margin: 5px 0;
 }
+/* Botón de comprar similar al de Amazon */
 .producto button {
+  background-color: #F0C14B;
+  border: 1px solid;
+  border-color: #A88734 #9C7E31 #846A29;
+  color: #111;
+  padding: 5px 10px;
   margin-top: auto;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
   cursor: pointer;
+  font-size: 14px;
 }
 .producto button:hover {
-  background-color: #555;
+  background-color: #E2B33C;
 }
+/* Pie de página */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #131921;
+  color: white;
   text-align: center;
-  padding: 15px;
+  padding: 15px 20px;
+  margin-top: 20px;
 }

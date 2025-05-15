@@ -1,32 +1,32 @@
-// Función para generar el HTML de cada producto
+// Función para generar el HTML de cada producto utilizando las propiedades del JSON
 function crearProductoHTML(producto) {
-  // Crea un contenedor para el producto
+  // Crear un contenedor para el producto
   const contenedor = document.createElement('div');
   contenedor.className = 'producto';
   // Agrega la imagen del producto
   const img = document.createElement('img');
-  img.src = producto.imagen; // La propiedad 'imagen' debe contener la ruta o URL de la imagen
-  img.alt = producto.nombre;
+  img.src = producto.image; // se usa la propiedad "image"
+  img.alt = producto.name;  // se usa la propiedad "name"
   contenedor.appendChild(img);
   // Agrega el nombre del producto
-  const nombre = document.createElement('h3');
-  nombre.textContent = producto.nombre;
-  contenedor.appendChild(nombre);
+  const titulo = document.createElement('h3');
+  titulo.textContent = producto.name;
+  contenedor.appendChild(titulo);
   // Agrega la descripción del producto
   const descripcion = document.createElement('p');
-  descripcion.textContent = producto.descripcion;
+  descripcion.textContent = producto.description;
   contenedor.appendChild(descripcion);
   // Agrega el precio del producto
   const precio = document.createElement('p');
-  precio.textContent = `Precio: $${producto.precio}`;
+  precio.textContent = `Precio: $${producto.price}`;
   contenedor.appendChild(precio);
-  // Agrega el botón de comprar
+  // Agrega el botón de compra
   const boton = document.createElement('button');
   boton.textContent = 'Comprar';
   contenedor.appendChild(boton);
   return contenedor;
 }
-// Función para cargar los productos desde el archivo JSON
+// Función para cargar los productos desde el archivo inventory.json
 function cargarProductos() {
   fetch('inventory.json')
     .then(response => {
@@ -44,5 +44,5 @@ function cargarProductos() {
     })
     .catch(error => console.error('Error:', error));
 }
-// Llama a la función cargarProductos una vez que el DOM se haya cargado
+// Ejecuta la función una vez que el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', cargarProductos);
