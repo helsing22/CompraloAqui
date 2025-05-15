@@ -3,7 +3,7 @@ let isAddressValid = false; // Variable para verificar si la dirección es váli
 // Función para cargar los electrodomésticos desde inventory.json
 async function loadAppliances() {
     try {
-        const response = await fetch('./inventory.json');
+        const response = await fetch('/inventory.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -14,7 +14,10 @@ async function loadAppliances() {
         displayAppliances(data.appliances);
     } catch (error) {
         console.error('Error cargando los electrodomésticos:', error);
-        document.querySelector('.car-list').innerHTML = '<p>Error al cargar los productos. Por favor, intente más tarde.</p>';
+        const carList = document.querySelector('.car-list');
+        if (carList) {
+            carList.innerHTML = '<p>Error al cargar los productos. Por favor, intente más tarde.</p>';
+        }
     }
 }
 // Función para mostrar los electrodomésticos en la página
