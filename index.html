@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Electrodomésticos</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Venta de Electrodomésticos</h1>
+    <h1>Bienvenido a Nuestra Tienda</h1>
   </header>
   
   <nav>
@@ -17,10 +17,36 @@
     <a href="#contacto">Contacto</a>
   </nav>
   
+  <!-- Formulario de selección de despacho -->
+  <section id="shipping-section">
+    <h2>¿Cómo deseas recibir tu pedido?</h2>
+    <form id="shipping-form">
+      <label>
+        <input type="radio" name="delivery" value="store" checked>
+        Recoger en la tienda
+      </label>
+      <label>
+        <input type="radio" name="delivery" value="home">
+        Entregar en tu hogar
+      </label>
+      <div id="home-address" class="hidden">
+        <label>
+          Calle: <input type="text" id="calle" placeholder="Ingrese la calle">
+        </label>
+        <label>
+          Ciudad: <input type="text" id="ciudad" placeholder="Ingrese la ciudad">
+        </label>
+        <label>
+          Número: <input type="text" id="numero" placeholder="Ingrese el número">
+        </label>
+      </div>
+    </form>
+  </section>
+  
   <main>
     <section id="productos">
       <h2>Nuestros Productos</h2>
-      <!-- Aquí se cargarán dinámicamente los productos -->
+      <!-- Contenedor donde se cargarán dinámicamente los productos -->
       <div id="lista-productos"></div>
     </section>
   </main>
@@ -28,6 +54,15 @@
   <footer id="contacto">
     <p>Contacto: Tel: +1 (305) 776-1543</p>
   </footer>
+  
+  <!-- Carrito de compras flotante -->
+  <div id="cart" class="hidden">
+    <h3>Carrito de Compras</h3>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button id="finalize-btn">Finalizar Compra</button>
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>

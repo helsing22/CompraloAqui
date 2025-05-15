@@ -1,32 +1,34 @@
-// Función para generar el HTML de cada producto utilizando las propiedades del JSON
+// Array para almacenar los productos del carrito (cada entrada tendrá: producto y cantidad)
+const cart = [];
+// Función para generar el HTML de cada producto (basado en inventory.json)
 function crearProductoHTML(producto) {
-  // Crear un contenedor para el producto
   const contenedor = document.createElement('div');
   contenedor.className = 'producto';
-  // Agrega la imagen del producto
+  // Imagen
   const img = document.createElement('img');
-  img.src = producto.image; // se usa la propiedad "image"
-  img.alt = producto.name;  // se usa la propiedad "name"
+  img.src = producto.image;
+  img.alt = producto.name;
   contenedor.appendChild(img);
-  // Agrega el nombre del producto
+  // Nombre del producto
   const titulo = document.createElement('h3');
   titulo.textContent = producto.name;
   contenedor.appendChild(titulo);
-  // Agrega la descripción del producto
+  // Descripción
   const descripcion = document.createElement('p');
   descripcion.textContent = producto.description;
   contenedor.appendChild(descripcion);
-  // Agrega el precio del producto
+  // Precio
   const precio = document.createElement('p');
   precio.textContent = `Precio: $${producto.price}`;
   contenedor.appendChild(precio);
-  // Agrega el botón de compra
+  // Botón para agregar al carrito
   const boton = document.createElement('button');
-  boton.textContent = 'Comprar';
+  boton.textContent = 'Agregar al Carrito';
+  boton.addEventListener('click', () => agregarAlCarrito(producto));
   contenedor.appendChild(boton);
   return contenedor;
 }
-// Función para cargar los productos desde el archivo inventory.json
+// Función para cargar productos desde inventory.json
 function cargarProductos() {
   fetch('inventory.json')
     .then(response => {
@@ -44,5 +46,93 @@ function cargarProductos() {
     })
     .catch(error => console.error('Error:', error));
 }
-// Ejecuta la función una vez que el DOM está completamente cargado
-document.addEventListener('DOMContentLoaded', cargarProductos);
+// Función para agregar un producto al carrito
+function agregarAlCarrito(producto) {
+  // Buscar si el producto ya existe en el carrito
+  const itemExistente = cart.find(item => item.producto.id === producto.id);
+  if (itemExistente) {
+    itemExistente.cantidad += 1;
+  } else {
+    cart.push({ producto: producto, cantidad: 1 });
+  }
+  actualizarCartUI();
+}
+// Función para actualizar la interfaz del carrito
+function actualizarCartUI() {
+  const cartDiv = document.getElementById('cart');
+  const cartItemsDiv = document.getElementById('cart-items');
+  const cartTotalP = document.getElementById('cart-total');
+  // Vaciar contenido previo
+  cartItemsDiv.innerHTML = '';
+  // Si el carrito tiene ítems, mostrarlos
+  if (cart.length > 0) {
+    cart.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.textContent = `${item.producto.name} x ${item.cantidad}`;
+      cartItemsDiv.appendChild(itemDiv);
+    });
+    // Calcular precio total
+    const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
+    cartTotalP.textContent = `Total: $${total}`;
+    cartDiv.classList.remove('hidden');
+  } else {
+    cartDiv.classList.add('hidden');
+  }
+}
+// Función para obtener la información de despacho
+function obtenerDespachoInfo() {
+  const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
+  if (deliveryType === 'home') {
+    const calle = document.getElementById('calle').value.trim();
+    const ciudad = document.getElementById('ciudad').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    return `Entregar en el hogar: ${calle}, ${ciudad}, ${numero}`;
+  } else {
+    return 'Recoger en la tienda';
+  }
+}
+// Función para finalizar la compra y abrir WhatsApp
+function finalizarCompra() {
+  if (cart.length === 0) {
+    alert('El carrito está vacío.');
+    return;
+  }
+  // Armar detalle de productos (nombre y cantidad)
+  let detalleProductos = '';
+  cart.forEach(item => {
+    detalleProductos += `${item.producto.name} x ${item.cantidad}\n`;
+  });
+  // Calcular precio total
+  const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
+  
+  // Obtener información de despacho
+  const despacho = obtenerDespachoInfo();
+  // Armar mensaje para WhatsApp
+  let mensaje = `Pedido:%0A${detalleProductos}%0ATotal: $${total}%0ADespacho: ${despacho}`;
+  // URL para WhatsApp (nota: se requiere formatear el número sin espacios ni símbolos adicionales)
+  const waNumber = "13057761543";
+  const url = `https://wa.me/${waNumber}?text=${mensaje}`;
+  // Abrir enlace en una nueva ventana o pestaña
+  window.open(url, '_blank');
+}
+// Configurar evento del botón "Finalizar Compra" en el carrito
+document.getElementById('finalize-btn').addEventListener('click', finalizarCompra);
+// Mostrar/ocultar campos de dirección según la selección de entrega
+function configurarEnvio() {
+  const radioButtons = document.querySelectorAll('input[name="delivery"]');
+  radioButtons.forEach(rb => {
+    rb.addEventListener('change', () => {
+      const homeAddressDiv = document.getElementById('home-address');
+      if (rb.value === 'home' && rb.checked) {
+        homeAddressDiv.classList.remove('hidden');
+      } else if (rb.value === 'store' && rb.checked) {
+        homeAddressDiv.classList.add('hidden');
+      }
+    });
+  });
+}
+// Inicialización una vez que el DOM está listo
+document.addEventListener('DOMContentLoaded', () => {
+  cargarProductos();
+  configurarEnvio();
+});

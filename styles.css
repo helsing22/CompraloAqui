@@ -5,20 +5,20 @@ body {
   margin: 0;
   padding: 0;
 }
-/* Cabecera inspirada en Amazon */
+/* Cabecera al estilo Amazon */
 header {
   background-color: #131921;
   color: white;
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 header h1 {
   font-size: 24px;
   margin: 0;
 }
-/* Barra de navegación con estética de Amazon */
+/* Navegación */
 nav {
   background-color: #232F3E;
   padding: 10px 20px;
@@ -34,20 +34,39 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
-/* Sección principal donde se muestran los productos */
+/* Sección de envío */
+#shipping-section {
+  background-color: #fff;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border: 1px solid #ddd;
+}
+#shipping-form label {
+  margin-right: 15px;
+  font-size: 14px;
+}
+#shipping-form input[type="text"] {
+  margin-left: 5px;
+  padding: 3px;
+  font-size: 14px;
+}
+.hidden {
+  display: none;
+}
+/* Zona principal de productos */
 main {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
 }
-/* Vista en cuadrícula de productos */
 #lista-productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-/* Tarjeta de cada producto (se inspira en los cards de Amazon) */
+/* Tarjeta de producto */
 .producto {
   background-color: white;
   border: 1px solid #DDD;
@@ -73,7 +92,7 @@ main {
   color: #565959;
   margin: 5px 0;
 }
-/* Botón de comprar similar al de Amazon */
+/* Botón de comprar similar a Amazon */
 .producto button {
   background-color: #F0C14B;
   border: 1px solid;
@@ -94,4 +113,38 @@ footer {
   text-align: center;
   padding: 15px 20px;
   margin-top: 20px;
+}
+/* Carrito de compras flotante */
+#cart {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+  z-index: 1000;
+}
+#cart h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+#cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+#finalize-btn {
+  background-color: #F0C14B;
+  border: 1px solid;
+  border-color: #A88734 #9C7E31 #846A29;
+  color: #111;
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+}
+#finalize-btn:hover {
+  background-color: #E2B33C;
 }
