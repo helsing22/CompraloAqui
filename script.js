@@ -116,7 +116,7 @@ function obtenerDespachoInfo() {
     // Se usa el id "direccion" sin acentos
     const direccion = document.getElementById('direccion').value.trim();
     const numero = document.getElementById('numero').value.trim();
-    return `Entregar en una Dirección: ${direccion}, ${numero}`;
+    return `Entregar en la Dirección: ${direccion}, ${numero}`;
   } else {
     return 'Recoger en la tienda';
   }
