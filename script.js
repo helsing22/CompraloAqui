@@ -113,8 +113,8 @@ function actualizarCartUI() {
 function obtenerDespachoInfo() {
   const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
   if (deliveryType === 'home') {
-    // Asegúrate de que el id del input de dirección en el HTML sea "Dirección" (tal como se usa acá)
-    const direccion = document.getElementById('Dirección').value.trim();
+    // Se usa el id "direccion" sin acentos
+    const direccion = document.getElementById('direccion').value.trim();
     const numero = document.getElementById('numero').value.trim();
     return `Entregar en el hogar: ${direccion}, ${numero}`;
   } else {
