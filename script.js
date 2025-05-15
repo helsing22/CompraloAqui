@@ -3,25 +3,6 @@ document.addEventListener('DOMContentLoaded', loadAppliances);
 let cart = []; // Array para almacenar los electrodomésticos en el carrito
 let isAddressValid = false; // Variable para verificar si la dirección es válida
 // Función para cargar los electrodomésticos desde inventory.json
-async function loadAppliances() {
-    try {
-        const response = await fetch('inventory.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        if (!data || !data.appliances || !Array.isArray(data.appliances)) {
-            throw new Error('Formato de datos inválido en inventory.json');
-        }
-        displayAppliances(data.appliances);
-    } catch (error) {
-        console.error('Error cargando los electrodomésticos:', error);
-        const carList = document.querySelector('.car-list');
-        if (carList) {
-            carList.innerHTML = '<p>Error al cargar los productos. Por favor, intente más tarde.</p>';
-        }
-    }
-}
 // Función para mostrar los electrodomésticos en la página
 function displayAppliances(appliances) {
     const carList = document.querySelector('.car-list');
