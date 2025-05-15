@@ -79,6 +79,11 @@ function actualizarCartUI() {
     cartDiv.classList.add('hidden');
   }
 }
+// Función para vaciar el carrito
+function vaciarCarrito() {
+  cart.length = 0; // Limpia el array
+  actualizarCartUI();
+}
 // Función para obtener la información de despacho
 function obtenerDespachoInfo() {
   const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
@@ -109,7 +114,7 @@ function finalizarCompra() {
   const despacho = obtenerDespachoInfo();
   // Armar mensaje para WhatsApp
   let mensaje = `Pedido:%0A${detalleProductos}%0ATotal: $${total}%0ADespacho: ${despacho}`;
-  // URL para WhatsApp (nota: se requiere formatear el número sin espacios ni símbolos adicionales)
+  // URL para WhatsApp (asegúrate de formatear el número apropiadamente)
   const waNumber = "13057761543";
   const url = `https://wa.me/${waNumber}?text=${mensaje}`;
   // Abrir enlace en una nueva ventana o pestaña
@@ -117,6 +122,8 @@ function finalizarCompra() {
 }
 // Configurar evento del botón "Finalizar Compra" en el carrito
 document.getElementById('finalize-btn').addEventListener('click', finalizarCompra);
+// Configurar evento del botón "Vaciar Carrito"
+document.getElementById('empty-cart-btn').addEventListener('click', vaciarCarrito);
 // Mostrar/ocultar campos de dirección según la selección de entrega
 function configurarEnvio() {
   const radioButtons = document.querySelectorAll('input[name="delivery"]');
