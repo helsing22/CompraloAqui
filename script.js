@@ -1,6 +1,6 @@
-// Array para almacenar los productos del carrito (cada entrada tendrá: producto y cantidad)
+// Array global para almacenar los productos del carrito
 const cart = [];
-// Función para generar el HTML de cada producto (basado en inventory.json)
+// Función para generar el HTML de cada producto
 function crearProductoHTML(producto) {
   const contenedor = document.createElement('div');
   contenedor.className = 'producto';
@@ -48,7 +48,6 @@ function cargarProductos() {
 }
 // Función para agregar un producto al carrito
 function agregarAlCarrito(producto) {
-  // Buscar si el producto ya existe en el carrito
   const itemExistente = cart.find(item => item.producto.id === producto.id);
   if (itemExistente) {
     itemExistente.cantidad += 1;
@@ -57,21 +56,43 @@ function agregarAlCarrito(producto) {
   }
   actualizarCartUI();
 }
+// Función para eliminar un producto específico del carrito
+function eliminarProducto(idProducto) {
+  const indice = cart.findIndex(item => item.producto.id === idProducto);
+  if (indice !== -1) {
+    cart.splice(indice, 1);
+    actualizarCartUI();
+  }
+}
+// Función para vaciar el carrito
+function vaciarCarrito() {
+  cart.length = 0;
+  actualizarCartUI();
+}
 // Función para actualizar la interfaz del carrito
 function actualizarCartUI() {
   const cartDiv = document.getElementById('cart');
   const cartItemsDiv = document.getElementById('cart-items');
   const cartTotalP = document.getElementById('cart-total');
-  // Vaciar contenido previo
+  // Limpiar contenido previo
   cartItemsDiv.innerHTML = '';
-  // Si el carrito tiene ítems, mostrarlos
   if (cart.length > 0) {
     cart.forEach(item => {
       const itemDiv = document.createElement('div');
-      itemDiv.textContent = `${item.producto.name} x ${item.cantidad}`;
+      itemDiv.className = 'cart-item';
+      
+      // Texto con el nombre y cantidad
+      const textSpan = document.createElement('span');
+      textSpan.textContent = `${item.producto.name} x ${item.cantidad}`;
+      itemDiv.appendChild(textSpan);
+      // Botón para eliminar este producto
+      const delBtn = document.createElement('button');
+      delBtn.textContent = "Eliminar";
+      delBtn.className = "delete-btn";
+      delBtn.addEventListener('click', () => eliminarProducto(item.producto.id));
+      itemDiv.appendChild(delBtn);
       cartItemsDiv.appendChild(itemDiv);
     });
-    // Calcular precio total
     const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
     cartTotalP.textContent = `Total: $${total}`;
     cartDiv.classList.remove('hidden');
@@ -79,12 +100,7 @@ function actualizarCartUI() {
     cartDiv.classList.add('hidden');
   }
 }
-// Función para vaciar el carrito
-function vaciarCarrito() {
-  cart.length = 0; // Limpia el array
-  actualizarCartUI();
-}
-// Función para obtener la información de despacho
+// Función para obtener la información de despacho (ya definida en versiones anteriores)
 function obtenerDespachoInfo() {
   const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
   if (deliveryType === 'home') {
@@ -102,29 +118,38 @@ function finalizarCompra() {
     alert('El carrito está vacío.');
     return;
   }
-  // Armar detalle de productos (nombre y cantidad)
   let detalleProductos = '';
   cart.forEach(item => {
     detalleProductos += `${item.producto.name} x ${item.cantidad}\n`;
   });
-  // Calcular precio total
   const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
-  
-  // Obtener información de despacho
   const despacho = obtenerDespachoInfo();
-  // Armar mensaje para WhatsApp
-  let mensaje = `Pedido:%0A${detalleProductos}%0ATotal: $${total}%0ADespacho: ${despacho}`;
-  // URL para WhatsApp (asegúrate de formatear el número apropiadamente)
+  const mensaje = `Pedido:%0A${detalleProductos}%0ATotal: $${total}%0ADespacho: ${despacho}`;
   const waNumber = "13057761543";
   const url = `https://wa.me/${waNumber}?text=${mensaje}`;
-  // Abrir enlace en una nueva ventana o pestaña
   window.open(url, '_blank');
 }
-// Configurar evento del botón "Finalizar Compra" en el carrito
+// Funciones para minimizar y restaurar el carrito
+function minimizeCart() {
+  // Ocultar el carrito completo y mostrar el botón minimizado
+  document.getElementById('cart').classList.add('hidden');
+  document.getElementById('minimized-cart').classList.remove('hidden');
+}
+function restoreCart() {
+  // Mostrar nuevamente el carrito completo y ocultar el botón minimizado
+  if (cart.length > 0) {
+    document.getElementById('cart').classList.remove('hidden');
+  }
+  document.getElementById('minimized-cart').classList.add('hidden');
+}
+// Configurar evento para los botones de minimizar/restaurar
+document.getElementById('minimize-btn').addEventListener('click', minimizeCart);
+document.getElementById('restore-btn').addEventListener('click', restoreCart);
+// Configurar evento del botón "Finalizar Compra"
 document.getElementById('finalize-btn').addEventListener('click', finalizarCompra);
 // Configurar evento del botón "Vaciar Carrito"
 document.getElementById('empty-cart-btn').addEventListener('click', vaciarCarrito);
-// Mostrar/ocultar campos de dirección según la selección de entrega
+// Configurar envío (ya definido en versiones anteriores)
 function configurarEnvio() {
   const radioButtons = document.querySelectorAll('input[name="delivery"]');
   radioButtons.forEach(rb => {
@@ -138,7 +163,7 @@ function configurarEnvio() {
     });
   });
 }
-// Inicialización una vez que el DOM está listo
+// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   cargarProductos();
   configurarEnvio();

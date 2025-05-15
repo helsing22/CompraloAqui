@@ -1,4 +1,6 @@
-/* Importar fuente moderna */
+/* Importar fuente moderna de Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+/* Estilos Generales */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   background-color: #F5F5F5;
@@ -17,7 +19,7 @@ body {
     transform: translateY(0);
   }
 }
-/* Cabecera de estilo moderno */
+/* Cabecera de la Página */
 header {
   background-color: #131921;
   color: #fff;
@@ -52,7 +54,7 @@ nav a {
 nav a:hover {
   color: #F0C14B;
 }
-/* Sección de envío */
+/* Sección de Envío */
 #shipping-section {
   background-color: #fff;
   padding: 20px;
@@ -81,7 +83,7 @@ nav a:hover {
 .hidden {
   display: none;
 }
-/* Zona principal de productos */
+/* Zona Principal de Productos */
 main {
   max-width: 1200px;
   margin: 20px auto;
@@ -90,13 +92,13 @@ main {
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
-/* Grid de productos */
+/* Grid de Productos */
 #lista-productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-/* Tarjeta de producto */
+/* Tarjeta de Producto */
 .producto {
   background-color: #fff;
   border: none;
@@ -134,7 +136,7 @@ main {
   color: #565959;
   margin: 5px 0;
 }
-/* Botón de comprar */
+/* Botón de Agregar al Carrito */
 .producto button {
   background-color: #F0C14B;
   border: 1px solid #A88734;
@@ -150,7 +152,7 @@ main {
   background-color: #E2B33C;
   transform: scale(1.02);
 }
-/* Pie de página */
+/* Pie de Página */
 footer {
   background-color: #131921;
   color: #fff;
@@ -160,41 +162,70 @@ footer {
   font-size: 15px;
   letter-spacing: 0.5px;
 }
-/* Carrito de compras flotante */
+/* Carrito de Compras - Ventana Completa */
 #cart {
   position: fixed;
   right: 20px;
   bottom: 20px;
   width: 320px;
+  max-height: 80vh;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   padding: 20px;
   z-index: 1000;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  overflow-y: auto;
+  transition: all 0.3s ease;
   animation: fadeInUp 0.5s ease both;
 }
-#cart h3 {
-  margin-top: 0;
+/* Cabecera del Carrito */
+#cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#cart-header h3 {
   font-size: 20px;
-  margin-bottom: 15px;
+  margin: 0;
 }
-#cart-items {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 15px;
-}
-#cart-items div {
-  margin-bottom: 8px;
-  font-size: 15px;
+#minimize-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
   color: #333;
+  transition: color 0.3s ease;
 }
-#cart-total {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 15px;
+#minimize-btn:hover {
+  color: #E2B33C;
 }
-/* Botones del carrito */
+/* Contenido del Carrito */
+#cart-content {
+  font-size: 15px;
+}
+/* Cada Ítem del Carrito */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+.cart-item button.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #E74C3C;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+.cart-item button.delete-btn:hover {
+  color: #C0392B;
+}
+/* Botones del Carrito */
 #finalize-btn,
 #empty-cart-btn {
   background-color: #F0C14B;
@@ -213,23 +244,48 @@ footer {
   background-color: #E2B33C;
   transform: scale(1.02);
 }
-/* Media Queries para dispositivos móviles */
+/* Botón del Carrito Minimizado (Ícono) */
+#minimized-cart {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+}
+#minimized-cart button {
+  background-color: #F0C14B;
+  border: 1px solid #A88734;
+  color: #111;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#minimized-cart button:hover {
+  background-color: #E2B33C;
+  transform: scale(1.05);
+}
+/* Responsividad para Dispositivos Móviles */
 @media screen and (max-width: 768px) {
   header h1 {
     font-size: 22px;
   }
+  
   nav a {
     font-size: 14px;
     margin: 0 10px 5px;
   }
+  
   #shipping-section, main {
     margin: 10px;
     padding: 15px;
   }
+  
   #cart {
     width: 90%;
     right: 5%;
-    bottom: 10px;
+    bottom: 20px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -237,12 +293,15 @@ footer {
     font-size: 13px;
     margin: 0 8px;
   }
+  
   .producto h3 {
     font-size: 18px;
   }
+  
   .producto p {
     font-size: 13px;
   }
+  
   #finalize-btn,
   #empty-cart-btn {
     font-size: 13px;

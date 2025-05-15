@@ -55,14 +55,22 @@
     <p>Contacto: Tel: +1 (305) 776-1543</p>
   </footer>
   
- <!-- Carrito de compras flotante -->
+<!-- Carrito de compras flotante (ventana completa) -->
 <div id="cart" class="hidden">
-  <h3>Carrito de Compras</h3>
-  <div id="cart-items"></div>
-  <p id="cart-total"></p>
-  <button id="finalize-btn">Finalizar Compra</button>
-  <!-- Botón para vaciar el carrito -->
-  <button id="empty-cart-btn">Vaciar Carrito</button>
+  <div id="cart-header">
+    <h3>Carrito de Compras</h3>
+    <button id="minimize-btn" title="Minimizar">–</button>
+  </div>
+  <div id="cart-content">
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button id="finalize-btn">Finalizar Compra</button>
+    <button id="empty-cart-btn">Vaciar Carrito</button>
+  </div>
+</div>
+<!-- Botón flotante visible cuando el carrito está minimizado -->
+<div id="minimized-cart" class="hidden">
+  <button id="restore-btn" title="Mostrar carrito">🛒</button>
 </div>
   
   <script src="script.js"></script>
