@@ -43,7 +43,7 @@
   },
   {
     "id": 7,
-    "name": "Klaxon Hella",
+    "name": "Claxon Hella",
     "price": 50,
     "image": "Images/Klaxon Hella.jpeg",
     "description": "Bocina de alta calidad con sonido potente y claro. Instalación sencilla y larga duración."
@@ -82,5 +82,12 @@
     "price": 90,
     "image": "Images/Radio Satelital.jpeg",
     "description": "Radio satelital con acceso a múltiples canales de música, noticias y entretenimiento."
+  },
+  {
+    "id": 13,
+    "name":"Claxon / Cornetas",
+    "price": 50,
+    "image":"Images/Car Horn Honda.jpeg",
+    "description":"Claxon para automoviles, Honda con Cable"
   }
 ]
