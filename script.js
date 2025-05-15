@@ -116,7 +116,7 @@ function obtenerDespachoInfo() {
     // Se usa el id "direccion" sin acentos
     const direccion = document.getElementById('direccion').value.trim();
     const numero = document.getElementById('numero').value.trim();
-    return `Entregar en el hogar: ${direccion}, ${numero}`;
+    return `Entregar en una Dirección: ${direccion}, ${numero}`;
   } else {
     return 'Recoger en la tienda';
   }
@@ -129,7 +129,7 @@ function finalizarCompra() {
   }
   let detalleProductos = '';
   cart.forEach(item => {
-    detalleProductos += `${item.producto.name} x ${item.cantidad}\n`;
+    detalleProductos += `${item.producto.name} x ${item.cantidad} - \n`;
   });
   const total = cart.reduce((sum, item) => sum + (item.producto.price * item.cantidad), 0);
   const despacho = obtenerDespachoInfo();
