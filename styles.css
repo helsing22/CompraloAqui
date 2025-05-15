@@ -1,22 +1,37 @@
-/* Estilos generales */
+/* Importar fuente moderna */
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #EAEDED;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #F5F5F5;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
-/* Cabecera al estilo Amazon */
+/* Animaciones clave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Cabecera de estilo moderno */
 header {
   background-color: #131921;
-  color: white;
-  padding: 10px 20px;
+  color: #fff;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 header h1 {
-  font-size: 24px;
+  font-size: 26px;
   margin: 0;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 0.5s ease-out;
 }
 /* Navegación */
 nav {
@@ -24,32 +39,44 @@ nav {
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  margin-right: 15px;
-  font-size: 14px;
+  margin: 0 15px 5px;
+  font-size: 15px;
+  transition: color 0.3s ease;
 }
 nav a:hover {
-  text-decoration: underline;
+  color: #F0C14B;
 }
 /* Sección de envío */
 #shipping-section {
   background-color: #fff;
-  padding: 15px 20px;
+  padding: 20px;
   margin: 20px auto;
   max-width: 1200px;
-  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+#shipping-section h2 {
+  margin-top: 0;
+  font-size: 20px;
 }
 #shipping-form label {
   margin-right: 15px;
-  font-size: 14px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
 }
 #shipping-form input[type="text"] {
   margin-left: 5px;
-  padding: 3px;
-  font-size: 14px;
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 .hidden {
   display: none;
@@ -60,7 +87,10 @@ main {
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
+/* Grid de productos */
 #lista-productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -68,83 +98,154 @@ main {
 }
 /* Tarjeta de producto */
 .producto {
-  background-color: white;
-  border: 1px solid #DDD;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease both;
+}
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 .producto img {
   width: 100%;
   height: 200px;
   object-fit: contain;
+  border-bottom: 1px solid #eee;
   margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+}
+.producto img:hover {
+  opacity: 0.9;
 }
 .producto h3 {
-  font-size: 18px;
-  margin: 10px 0 5px 0;
+  font-size: 20px;
+  margin: 10px 0 5px;
   color: #0F1111;
 }
 .producto p {
-  font-size: 14px;
+  font-size: 15px;
   color: #565959;
   margin: 5px 0;
 }
-/* Botón de comprar similar a Amazon */
+/* Botón de comprar */
 .producto button {
   background-color: #F0C14B;
-  border: 1px solid;
-  border-color: #A88734 #9C7E31 #846A29;
+  border: 1px solid #A88734;
   color: #111;
-  padding: 5px 10px;
+  padding: 8px 12px;
   margin-top: auto;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .producto button:hover {
   background-color: #E2B33C;
+  transform: scale(1.02);
 }
 /* Pie de página */
 footer {
   background-color: #131921;
-  color: white;
+  color: #fff;
   text-align: center;
-  padding: 15px 20px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
 }
 /* Carrito de compras flotante */
 #cart {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 300px;
+  width: 320px;
   background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 20px;
   z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: fadeInUp 0.5s ease both;
 }
 #cart h3 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 #cart-items {
   max-height: 200px;
   overflow-y: auto;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-#finalize-btn {
+#cart-items div {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333;
+}
+#cart-total {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+/* Botones del carrito */
+#finalize-btn,
+#empty-cart-btn {
   background-color: #F0C14B;
-  border: 1px solid;
-  border-color: #A88734 #9C7E31 #846A29;
+  border: 1px solid #A88734;
   color: #111;
-  padding: 8px 12px;
+  padding: 10px 0;
   width: 100%;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 8px;
 }
-#finalize-btn:hover {
+#finalize-btn:hover,
+#empty-cart-btn:hover {
   background-color: #E2B33C;
+  transform: scale(1.02);
+}
+/* Media Queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 22px;
+  }
+  nav a {
+    font-size: 14px;
+    margin: 0 10px 5px;
+  }
+  #shipping-section, main {
+    margin: 10px;
+    padding: 15px;
+  }
+  #cart {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  nav a {
+    font-size: 13px;
+    margin: 0 8px;
+  }
+  .producto h3 {
+    font-size: 18px;
+  }
+  .producto p {
+    font-size: 13px;
+  }
+  #finalize-btn,
+  #empty-cart-btn {
+    font-size: 13px;
+    padding: 8px 0;
+  }
 }
