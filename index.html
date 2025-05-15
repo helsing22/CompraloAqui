@@ -12,34 +12,31 @@
     </header>
     <main>
         <div class="car-list">
-            <div class="car-item">
-                <img src="Images/nevera.jpg" alt="Nevera Samsung">
-                <h2>Nevera Samsung Digital Inverter</h2>
-                <p>Nevera moderna con tecnología de enfriamiento eficiente y compartimentos ajustables.</p>
-                <p>Precio: <span class="car-price" data-price="1200">$1,200</span></p>
-                <button onclick="addToCart('Nevera Samsung Digital Inverter', 1200)">Agregar al carrito</button>
-            </div>
-            <div class="car-item">
-                <img src="Images/lavadora.jpg" alt="Lavadora LG">
-                <h2>Lavadora LG Smart</h2>
-                <p>Lavadora inteligente con múltiples programas y conexión WiFi.</p>
-                <p>Precio: <span class="car-price" data-price="800">$800</span></p>
-                <button onclick="addToCart('Lavadora LG Smart', 800)">Agregar al carrito</button>
-            </div>
-            <div class="car-item">
-                <img src="Images/microondas.jpg" alt="Microondas Whirlpool">
-                <h2>Microondas Whirlpool Digital</h2>
-                <p>Microondas con panel digital y múltiples funciones de cocción.</p>
-                <p>Precio: <span class="car-price" data-price="150">$150</span></p>
-                <button onclick="addToCart('Microondas Whirlpool Digital', 150)">Agregar al carrito</button>
-            </div>
+            <!-- Los electrodomésticos se cargarán dinámicamente aquí -->
         </div>
         <div class="cart-info">
             <h3>Contenido del Carrito</h3>
             <ul id="cartItemsList"></ul>
             <p id="totalPrice">Precio Total: $0</p>
         </div>
-        <!-- Resto del código permanece igual -->
+        <div class="address-validation">
+            <h3>Validación de Dirección</h3>
+            <div class="address-form">
+                <label for="street">Calle:</label>
+                <input type="text" id="street" required>
+                
+                <label for="homeNumber">Número:</label>
+                <input type="text" id="homeNumber" required>
+                
+                <label for="city">Ciudad:</label>
+                <input type="text" id="city" required>
+                
+                <button onclick="validateAddress()">Validar Dirección</button>
+            </div>
+        </div>
+        <div class="send-message">
+            <button onclick="sendMessage()">Enviar Mensaje por WhatsApp</button>
+        </div>
     </main>
     <footer>
         <p>&copy; 2023 Venta de Electrodomésticos</p>

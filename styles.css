@@ -1,117 +1,128 @@
 * {
-    box-sizing: border-box; /* Asegura que el padding y el border no afecten el ancho total */
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #37475a;
+    --secondary-color: #ff9900;
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+    --white: #ffffff;
 }
 html, body {
-    height: 100%; /* Asegura que html y body ocupen el 100% de la altura de la ventana */
-    margin: 0; /* Elimina el margen por defecto */
+    height: 100%;
+    margin: 0;
 }
 body {
     font-family: 'Amazon Ember', Arial, sans-serif;
-    background-color: #f4f4f4; /* Color de fondo más suave */
+    background-color: var(--light-gray);
     display: flex;
-    flex-direction: column; /* Organiza los elementos en columna */
+    flex-direction: column;
+    min-height: 100vh;
 }
 header {
-    background: #37475a; /* Un azul oscuro */
-    color: #ffffff;
-    padding: 15px 5%; /* Espaciado responsivo */
-    text-align: center;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-h1 {
-    font-size: 2.5em;
-    margin: 0;
+main {
+    flex: 1;
+    padding: 2rem 0;
 }
 .car-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 5%;
-    flex: 1;
-    
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.car-item {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .car-item:hover {
-    transform: translateY(-5px); /* Eleva el elemento al pasar el mouse */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 .car-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Bordes redondeados para la imagen */
-    transition: transform 0.3s; /* Animación de la imagen */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
-.car-item:hover img {
-    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el mouse */
-}
-h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: #333; /* Color del texto del título más oscuro */
-}
-p {
-    font-size: 1em;
-    color: #666; /* Color del texto de la descripción más suave */
-}
-.delivery-info {
-    background: #ffffff; /* Fondo blanco para la sección de entrega */
-    border: 1px solid #e0e0e0; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    margin: 20px 5%; /* Margen para separar de otros elementos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+.cart-info {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 5%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .address-validation {
-    background: #ffffff; /* Fondo blanco para la sección de validación */
-    border: 1px solid #e0e0e0; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    margin: 20px 5%; /* Margen para separar de otros elementos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 5%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
-label {
-    display: block; /* Hace que la etiqueta ocupe toda la línea */
-    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
-    font-weight: bold; /* Texto en negrita */
+.address-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
 }
 input[type="text"] {
-    width: 100%; /* Ancho completo del campo de entrada */
-    padding: 10px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-bottom: 15px; /* Espacio entre el campo de entrada y el botón */
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+input[type="text"]:focus {
+    border-color: var(--secondary-color);
+    outline: none;
 }
 button {
-    background: #ff9900; /* Un naranja más suave */
-    color: white;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
     border: none;
-    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background 0.3s, transform 0.3s; /* Animación fluida */
-    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 button:hover {
-    background: #e68a00; /* Un naranja más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el mouse */
+    background: #e68a00;
+    transform: scale(1.02);
 }
 footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem;
     text-align: center;
-    padding: 20px 0;
-    background: #37475a; /* Mismo azul oscuro que el encabezado */
-    color: #ffffff;
-    width: 100%;
+    margin-top: auto;
 }
-/* Estilos responsivos */
 @media (max-width: 768px) {
-    .car-item {
-        width: 90%; /* Aumenta el ancho en pantallas más pequeñas */
+    .car-list {
+        grid-template-columns: 1fr;
     }
-    h1 {
-        font-size: 2em; /* Reduce el tamaño del título en pantallas pequeñas */
+    
+    .address-form {
+        grid-template-columns: 1fr;
     }
-    h2 {
-        font-size: 1.25em; /* Reduce el tamaño de los títulos de los coches */
+    
+    .cart-info, .address-validation {
+        margin: 1rem;
+        padding: 1rem;
     }
 }

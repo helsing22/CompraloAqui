@@ -1,0 +1,26 @@
+
+{
+  "appliances": [
+    {
+      "id": 1,
+      "name": "Nevera Samsung Digital Inverter",
+      "description": "Nevera moderna con tecnología de enfriamiento eficiente y compartimentos ajustables.",
+      "price": 1200,
+      "image": "Images/nevera.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Lavadora LG Smart",
+      "description": "Lavadora inteligente con múltiples programas y conexión WiFi.",
+      "price": 800,
+      "image": "Images/lavadora.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Microondas Whirlpool Digital",
+      "description": "Microondas con panel digital y múltiples funciones de cocción.",
+      "price": 150,
+      "image": "Images/microondas.jpg"
+    }
+  ]
+}
