@@ -1,5 +1,4 @@
-{
-  "appliances": [
+ [
     {
       "id": 1,
       "name": "Aspiradora Húmedo y Seco",
@@ -30,7 +29,7 @@
     },
     {
       "id": 5,
-"name": "Hella H4 12V 60 55W halogeno",
+    "name": "Hella H4 12V 60 55W halogeno",
       "price": 10,
       "image": "Images/Hella H4 12V 60 55W halogeno 10.jpeg",
       "description": "Bombilla halógena H4 de doble filamento. Excelente rendimiento y durabilidad."
@@ -85,4 +84,3 @@
       "description": "Radio satelital con acceso a múltiples canales de música, noticias y entretenimiento."
     }
   ]
-}

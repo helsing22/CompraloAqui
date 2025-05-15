@@ -1,0 +1,70 @@
+/* Estilos básicos para la estructuración de la página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+nav {
+  background-color: #444;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+}
+main {
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #fff;
+}
+#lista-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.producto {
+  border: 1px solid #ddd;
+  padding: 15px;
+  flex: 1 1 calc(33% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+}
+.producto img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+.producto h3 {
+  margin: 10px 0 5px 0;
+}
+.producto p {
+  margin: 5px 0;
+}
+.producto button {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.producto button:hover {
+  background-color: #555;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
