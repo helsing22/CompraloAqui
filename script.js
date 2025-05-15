@@ -2,7 +2,15 @@
 document.addEventListener('DOMContentLoaded', loadAppliances);
 let cart = []; // Array para almacenar los electrodomésticos en el carrito
 let isAddressValid = false; // Variable para verificar si la dirección es válida
+
 // Función para cargar los electrodomésticos desde inventory.json
+function loadAppliances() {
+    fetch('inventory.json')
+        .then(response => response.json())
+        .then(data => displayAppliances(data))
+        .catch(error => console.error('Error al cargar los electrodomésticos:', error));
+}
+
 // Función para mostrar los electrodomésticos en la página
 function displayAppliances(appliances) {
     const carList = document.querySelector('.car-list');
@@ -21,13 +29,14 @@ function displayAppliances(appliances) {
         carList.appendChild(applianceDiv);
     });
 }
+
 function addToCart(applianceName, appliancePrice) {
     cart.push({ name: applianceName, price: appliancePrice });
     updateCartDisplay();
     showCartNotification(applianceName);
 }
+
 function showCartNotification(itemName) {
-    // Crear o recuperar la notificación existente
     let notification = document.querySelector('.cart-notification');
     if (!notification) {
         notification = document.createElement('div');
@@ -35,19 +44,16 @@ function showCartNotification(itemName) {
         document.body.appendChild(notification);
     }
     
-    // Actualizar el contenido
     notification.textContent = `¡${itemName} agregado al carrito!`;
-    
-    // Mostrar la notificación
     notification.classList.remove('hide');
     notification.classList.add('show');
     
-    // Ocultar después de 3 segundos
     setTimeout(() => {
         notification.classList.remove('show');
         notification.classList.add('hide');
     }, 3000);
 }
+
 function updateCartDisplay() {
     const cartItemsList = document.getElementById('cartItemsList');
     const totalPriceElement = document.getElementById('totalPrice');
@@ -66,6 +72,7 @@ function updateCartDisplay() {
     
     totalPriceElement.textContent = `Precio Total: ${totalPrice}`;
 }
+
 function validateAddress() {
     const street = document.getElementById('street')?.value?.trim();
     const homeNumber = document.getElementById('homeNumber')?.value?.trim();
@@ -80,6 +87,7 @@ function validateAddress() {
     isAddressValid = true;
     alert('Dirección validada correctamente.');
 }
+
 function sendMessage() {
     const phoneNumber = '13057761543'.replace(/\D/g, '');
     const formattedPhone = phoneNumber.startsWith('1') ? phoneNumber : `1${phoneNumber}`;
@@ -108,22 +116,4 @@ function sendMessage() {
         message += `${item.name} - Precio: ${item.price}\n`;
     });
     
-    message += `\nMétodo de entrega: ${deliveryMethod === 'pickup' ? 'Recoger en tienda' : 'Entrega a domicilio'}`;
-    if (address) message += address;
-    
-    const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-}
-// Agregar evento para mostrar/ocultar el formulario de dirección
-document.addEventListener('DOMContentLoaded', function() {
-    const deliveryOptions = document.getElementsByName('deliveryMethod');
-    const addressForm = document.getElementById('deliveryAddressForm');
-    
-    deliveryOptions.forEach(option => {
-        option.addEventListener('change', function() {
-            addressForm.style.display = this.value === 'delivery' ? 'grid' : 'none';
-            if (this.value === 'pickup') isAddressValid = true;
-            else isAddressValid = false;
-        });
-    });
-});
+    message += `\nMét
