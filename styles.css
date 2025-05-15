@@ -29,7 +29,7 @@ main {
     flex: 1;
     padding: 2rem 0;
 }
-.car-list {
+.appliance-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;

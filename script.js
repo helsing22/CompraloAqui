@@ -12,21 +12,21 @@ function loadAppliances() {
 }
 
 // Función para mostrar los electrodomésticos en la página
-function displayAppliances(appliances) {
-    const carList = document.querySelector('.car-list');
-    carList.innerHTML = '';
+function displayAppliances(data) {
+    const applianceList = document.querySelector('.car-list');
+    applianceList.innerHTML = '';
     
-    appliances.forEach(appliance => {
+    data.appliances.forEach(appliance => {
         const applianceDiv = document.createElement('div');
         applianceDiv.className = 'car-item';
         applianceDiv.innerHTML = `
             <img src="${appliance.image}" alt="${appliance.name}">
             <h2>${appliance.name}</h2>
             <p>${appliance.description}</p>
-            <p>Precio: <span class="car-price" data-price="${appliance.price}">${appliance.price}</span></p>
+            <p>Precio: $<span class="car-price" data-price="${appliance.price}">${appliance.price}</span></p>
             <button onclick="addToCart('${appliance.name}', ${appliance.price})">Agregar al carrito</button>
         `;
-        carList.appendChild(applianceDiv);
+        applianceList.appendChild(applianceDiv);
     });
 }
 
@@ -97,10 +97,14 @@ function sendMessage() {
         return;
     }
     
-    const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+    const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked');
+    if (!deliveryMethod) {
+        alert('Por favor selecciona un método de entrega.');
+        return;
+    }
     let address = '';
     
-    if (deliveryMethod === 'delivery') {
+    if (deliveryMethod.value === 'delivery') {
         if (!isAddressValid) {
             alert('Por favor, valida tu dirección antes de enviar el mensaje.');
             return;
@@ -112,8 +116,16 @@ function sendMessage() {
     }
     
     let message = 'Hola, estoy interesado en los siguientes productos:\n\n';
+    let total = 0;
+    
     cart.forEach(item => {
         message += `${item.name} - Precio: ${item.price}\n`;
+        total += item.price;
     });
     
-    message += `\nMét
+    message += `\nTotal: $${total}`;
+    message += `\nMétodo de entrega: ${deliveryMethod.value === 'delivery' ? 'Entrega a domicilio' + address : 'Recoger en tienda'}`;
+    
+    const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
