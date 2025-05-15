@@ -3,16 +3,19 @@ let isAddressValid = false; // Variable para verificar si la dirección es váli
 function addToCart(carName, carPrice) {
     // Agrega el coche al carrito
     cart.push({ name: carName, price: carPrice });
-    alert(`${carName} ha sido agregado al carrito.`);
     updateCartDisplay(); // Actualiza la visualización del carrito
 }
 function updateCartDisplay() {
     const cartItemsList = document.getElementById('cartItemsList');
     const totalPriceElement = document.getElementById('totalPrice');
+    
+    if (!cartItemsList || !totalPriceElement) return; // Validación de elementos
+    
     // Limpia la lista de artículos en el carrito
     cartItemsList.innerHTML = '';
     // Calcula el precio total
     let totalPrice = 0;
+    
     // Agrega cada artículo del carrito a la lista
     cart.forEach(item => {
         const listItem = document.createElement('li');
@@ -20,11 +23,12 @@ function updateCartDisplay() {
         cartItemsList.appendChild(listItem);
         totalPrice += item.price; // Suma el precio al total
     });
+    
     // Actualiza el precio total en la interfaz
-    totalPriceElement.textContent = `Precio Total: $${totalPrice}`;
+    totalPriceElement.textContent = `Precio Total: ${totalPrice}`;
 }
 function sendMessage() {
-    const phoneNumber = '13057761543'; // Número de teléfono para enviar el mensaje
+    const phoneNumber = '13057761543';
     const address = document.getElementById('address').value;
     // Verifica si hay coches en el carrito
     if (cart.length === 0) {
@@ -36,10 +40,15 @@ function sendMessage() {
         alert('Por favor, valida tu dirección antes de enviar el mensaje.');
         return;
     }
+    // Verifica que la dirección no esté vacía
+    if (!address.trim()) {
+        alert('Por favor, ingresa una dirección.');
+        return;
+    }
     // Construye el mensaje con los coches en el carrito
     let message = 'Hola, estoy interesado en los siguientes coches:\n';
     cart.forEach(item => {
-        message += `${item.name} - Precio: $${item.price}\n`;
+        message += `${item.name} - Precio: ${item.price}\n`;
     });
     message += `Mi dirección es: ${address}.`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
