@@ -112,10 +112,10 @@ function actualizarCartUI() {
 function obtenerDespachoInfo() {
   const deliveryType = document.querySelector('input[name="delivery"]:checked').value;
   if (deliveryType === 'home') {
-    const calle = document.getElementById('calle').value.trim();
-    const ciudad = document.getElementById('ciudad').value.trim();
+    const direcion = document.getElementById('direcion').value.trim();
     const numero = document.getElementById('numero').value.trim();
-    return `Entregar en el hogar: ${calle}, ${ciudad}, ${numero}`;
+
+    return `Entregar en el hogar: ${direcion}, ${numero}`;
   } else {
     return 'Recoger en la tienda';
   }
