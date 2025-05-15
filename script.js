@@ -28,7 +28,10 @@ function updateCartDisplay() {
     totalPriceElement.textContent = `Precio Total: ${totalPrice}`;
 }
 function sendMessage() {
-    const phoneNumber = '13057761543';
+    // Formato internacional para números de EE.UU.
+    const phoneNumber = '13057761543'.replace(/\D/g, '');
+    const formattedPhone = phoneNumber.startsWith('1') ? phoneNumber : `1${phoneNumber}`;
+    
     // Verifica si hay coches en el carrito
     if (cart.length === 0) {
         alert('Tu carrito está vacío. Agrega coches antes de enviar un mensaje.');
@@ -40,20 +43,29 @@ function sendMessage() {
         return;
     }
     
-    // Obtiene los elementos de la dirección
-    const street = document.getElementById('street').value;
-    const homeNumber = document.getElementById('homeNumber').value;
-    const city = document.getElementById('city').value;
+    // Obtiene y valida los elementos de la dirección
+    const street = document.getElementById('street')?.value?.trim();
+    const homeNumber = document.getElementById('homeNumber')?.value?.trim();
+    const city = document.getElementById('city')?.value?.trim();
+    
+    if (!street || !homeNumber || !city) {
+        alert('Por favor, completa todos los campos de la dirección.');
+        return;
+    }
+    
     const fullAddress = `${street} ${homeNumber}, ${city}`;
     
     // Construye el mensaje con los coches en el carrito
     let message = 'Hola, estoy interesado en los siguientes coches:\n';
     cart.forEach(item => {
-        message += `${item.name} - Precio: ${item.price}\n`;
+        message += `${item.name} - Precio: $${item.price}\n`;
     });
-    message += `Mi dirección es: ${fullAddress}.`;
+    message += `Mi dirección es: ${fullAddress}`;
     
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    // Construye la URL de WhatsApp con el formato correcto
+    const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
+    
+    // Abre WhatsApp en una nueva ventana
     window.open(whatsappUrl, '_blank');
 }
 function validateAddress() {
