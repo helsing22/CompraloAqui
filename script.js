@@ -29,7 +29,6 @@ function updateCartDisplay() {
 }
 function sendMessage() {
     const phoneNumber = '13057761543';
-    const address = document.getElementById('address').value;
     // Verifica si hay coches en el carrito
     if (cart.length === 0) {
         alert('Tu carrito está vacío. Agrega coches antes de enviar un mensaje.');
@@ -40,17 +39,20 @@ function sendMessage() {
         alert('Por favor, valida tu dirección antes de enviar el mensaje.');
         return;
     }
-    // Verifica que la dirección no esté vacía
-    if (!address.trim()) {
-        alert('Por favor, ingresa una dirección.');
-        return;
-    }
+    
+    // Obtiene los elementos de la dirección
+    const street = document.getElementById('street').value;
+    const homeNumber = document.getElementById('homeNumber').value;
+    const city = document.getElementById('city').value;
+    const fullAddress = `${street} ${homeNumber}, ${city}`;
+    
     // Construye el mensaje con los coches en el carrito
     let message = 'Hola, estoy interesado en los siguientes coches:\n';
     cart.forEach(item => {
         message += `${item.name} - Precio: ${item.price}\n`;
     });
-    message += `Mi dirección es: ${address}.`;
+    message += `Mi dirección es: ${fullAddress}.`;
+    
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
