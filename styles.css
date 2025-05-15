@@ -117,8 +117,22 @@ footer {
     margin-top: auto;
 }
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 3%;
+    }
+    
     .car-list {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 3%;
+    }
+    
+    .car-item {
+        padding: 1rem;
+    }
+    
+    .car-item img {
+        height: 180px;
     }
     
     .address-form {
@@ -126,7 +140,32 @@ footer {
     }
     
     .cart-info, .address-validation {
-        margin: 1rem;
+        margin: 1rem 3%;
         padding: 1rem;
+    }
+    
+    button {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .car-list {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 4%;
+    }
+    
+    .cart-info, .address-validation {
+        margin: 2rem 4%;
+    }
+}
+@media (min-width: 1025px) {
+    .car-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (hover: none) {
+    .car-item:hover {
+        transform: none;
     }
 }
