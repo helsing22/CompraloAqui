@@ -48,18 +48,21 @@ function showCartNotification(itemName) {
         notification.className = 'cart-notification hide';
         document.body.appendChild(notification);
     }
+    
     // Actualizar el contenido
     notification.textContent = `¡${itemName} agregado al carrito!`;
     
     // Mostrar la notificación
     notification.classList.remove('hide');
     notification.classList.add('show');
+    
     // Ocultar después de 3 segundos
     setTimeout(() => {
         notification.classList.remove('show');
         notification.classList.add('hide');
     }, 3000);
 }
+function updateCartDisplay() {
     const cartItemsList = document.getElementById('cartItemsList');
     const totalPriceElement = document.getElementById('totalPrice');
     
@@ -76,7 +79,7 @@ function showCartNotification(itemName) {
     });
     
     totalPriceElement.textContent = `Precio Total: ${totalPrice}`;
-
+}
 function validateAddress() {
     const street = document.getElementById('street')?.value?.trim();
     const homeNumber = document.getElementById('homeNumber')?.value?.trim();
@@ -104,13 +107,13 @@ function sendMessage() {
     let address = '';
     
     if (deliveryMethod === 'delivery') {
-    if (!isAddressValid) {
-        alert('Por favor, valida tu dirección antes de enviar el mensaje.');
-        return;
-    }
-    const street = document.getElementById('street')?.value?.trim();
-    const homeNumber = document.getElementById('homeNumber')?.value?.trim();
-    const city = document.getElementById('city')?.value?.trim();
+        if (!isAddressValid) {
+            alert('Por favor, valida tu dirección antes de enviar el mensaje.');
+            return;
+        }
+        const street = document.getElementById('street')?.value?.trim();
+        const homeNumber = document.getElementById('homeNumber')?.value?.trim();
+        const city = document.getElementById('city')?.value?.trim();
         address = `\nDirección de entrega: ${street} ${homeNumber}, ${city}`;
     }
     

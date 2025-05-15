@@ -1,4 +1,3 @@
-
 {
   "appliances": [
     {
@@ -56,7 +55,7 @@
       "price": 80,
       "image": "Images/Cargador de batería inteligente.jpeg",
       "description": "Cargador de batería inteligente multifuncional. Compatible con diversos tipos de baterías y voltajes."
-},
+    },
     {
       "id": 9,
       "name": "Forros de asiento (cuero sintético)",

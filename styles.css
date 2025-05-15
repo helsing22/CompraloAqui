@@ -168,6 +168,7 @@ footer {
     .car-item:hover {
         transform: none;
     }
+}
 .cart-notification {
     position: fixed;
     top: 20px;
@@ -189,5 +190,3 @@ footer {
     transform: translateX(100%);
     opacity: 0;
 }
-}
-
