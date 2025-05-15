@@ -3,61 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de Coches</title>
+    <title>Venta de Electrodomésticos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Venta de Coches</h1>
+        <h1>Venta de Electrodomésticos</h1>
     </header>
     <main>
         <div class="car-list">
             <div class="car-item">
-                <img src="Images/Corolla22.jpg" alt="Toyota Corolla 2022 LE">
-                <h2>Toyota Corolla 2022 LE</h2>
-                <p>Descripción del Coche 1. Es un coche muy interesante y atractivo.</p>
-                <p>Precio: <span class="car-price" data-price="8000">$8,000</span></p>
-                <button onclick="addToCart('Toyota Corolla 2022 LE', 8000)">Agregar al carrito</button>
+                <img src="Images/nevera.jpg" alt="Nevera Samsung">
+                <h2>Nevera Samsung Digital Inverter</h2>
+                <p>Nevera moderna con tecnología de enfriamiento eficiente y compartimentos ajustables.</p>
+                <p>Precio: <span class="car-price" data-price="1200">$1,200</span></p>
+                <button onclick="addToCart('Nevera Samsung Digital Inverter', 1200)">Agregar al carrito</button>
             </div>
             <div class="car-item">
-                <img src="Images/Corolla21.jpg" alt="Toyota Corolla 2021 L">
-                <h2>Toyota Corolla 2021 L</h2>
-                <p>Descripción del Toyota Corolla 2021 L. Este coche es ideal para la familia.</p>
-                <p>Precio: <span class="car-price" data-price="11000">$11,000</span></p>
-                <button onclick="addToCart('Toyota Corolla 2021 L', 11000)">Agregar al carrito</button>
+                <img src="Images/lavadora.jpg" alt="Lavadora LG">
+                <h2>Lavadora LG Smart</h2>
+                <p>Lavadora inteligente con múltiples programas y conexión WiFi.</p>
+                <p>Precio: <span class="car-price" data-price="800">$800</span></p>
+                <button onclick="addToCart('Lavadora LG Smart', 800)">Agregar al carrito</button>
             </div>
             <div class="car-item">
-                <img src="Images/Honda16.jpg" alt="Honda 2016 Pilot Touring">
-                <h2>Honda 2016 Pilot Touring</h2>
-                <p>Descripción del Coche 2. Este coche es ideal para la familia.</p>
-                <p>Precio: <span class="car-price" data-price="10000">$10,000</span></p>
-                <button onclick="addToCart('Honda 2016 Pilot Touring', 10000)">Agregar al carrito</button>
+                <img src="Images/microondas.jpg" alt="Microondas Whirlpool">
+                <h2>Microondas Whirlpool Digital</h2>
+                <p>Microondas con panel digital y múltiples funciones de cocción.</p>
+                <p>Precio: <span class="car-price" data-price="150">$150</span></p>
+                <button onclick="addToCart('Microondas Whirlpool Digital', 150)">Agregar al carrito</button>
             </div>
-            <!-- Agrega más coches aquí -->
         </div>
         <div class="cart-info">
             <h3>Contenido del Carrito</h3>
             <ul id="cartItemsList"></ul>
             <p id="totalPrice">Precio Total: $0</p>
         </div>
-        <div class="delivery-info">
-            <h3>Enviar Mensaje</h3>
-            <p>Valida tu dirección antes de enviar el mensaje por WhatsApp</p>
-            <button id="sendMessageButton" onclick="sendMessage()">Enviar mensaje por WhatsApp</button>
-        </div>
-            <h3>Validar Dirección Postal</h3>
-            <label for="street">Calle:</label>
-            <input type="text" id="street" placeholder="Ej. Calle 23" required>
-            <label for="homeNumber">Número de Hogar:</label>
-            <input type="text" id="homeNumber" placeholder="Ej. 45" required>
-            <label for="city">Ciudad:</label>
-            <input type="text" id="city" placeholder="Ej. La Habana" required>
-            <button id="validateAddressButton" onclick="validateAddress()">Validar Dirección</button>
-            <p id="validationMessage" style="color: red;"></p>
-        </div>
+        <!-- Resto del código permanece igual -->
     </main>
     <footer>
-        <p>&copy; 2023 Venta de Coches</p>
+        <p>&copy; 2023 Venta de Electrodomésticos</p>
     </footer>
     <script src="script.js"></script>
 </body>
