@@ -9,7 +9,6 @@ function addToCart(carName, carPrice) {
 function updateCartDisplay() {
     const cartItemsList = document.getElementById('cartItemsList');
     const totalPriceElement = document.getElementById('totalPrice');
-    
     // Limpia la lista de artículos en el carrito
     cartItemsList.innerHTML = '';
     // Calcula el precio total
