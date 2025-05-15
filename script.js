@@ -38,8 +38,28 @@ function displayAppliances(appliances) {
 function addToCart(applianceName, appliancePrice) {
     cart.push({ name: applianceName, price: appliancePrice });
     updateCartDisplay();
+    showCartNotification(applianceName);
 }
-function updateCartDisplay() {
+function showCartNotification(itemName) {
+    // Crear o recuperar la notificación existente
+    let notification = document.querySelector('.cart-notification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.className = 'cart-notification hide';
+        document.body.appendChild(notification);
+    }
+    // Actualizar el contenido
+    notification.textContent = `¡${itemName} agregado al carrito!`;
+    
+    // Mostrar la notificación
+    notification.classList.remove('hide');
+    notification.classList.add('show');
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+    }, 3000);
+}
     const cartItemsList = document.getElementById('cartItemsList');
     const totalPriceElement = document.getElementById('totalPrice');
     
@@ -56,7 +76,7 @@ function updateCartDisplay() {
     });
     
     totalPriceElement.textContent = `Precio Total: ${totalPrice}`;
-}
+
 function validateAddress() {
     const street = document.getElementById('street')?.value?.trim();
     const homeNumber = document.getElementById('homeNumber')?.value?.trim();
