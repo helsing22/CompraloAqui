@@ -190,7 +190,8 @@ footer {
   margin: 0;
 }
 #minimize-btn {
-  background: none;
+  box-sizing: border-box;
+    background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
