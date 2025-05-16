@@ -90,11 +90,11 @@
     "image":"Images/Car Horn Honda.jpeg",
     "description":"Claxon para automoviles, Honda con Cable"
   },
-    {
+   {
     "id":14,
-    "name":"EcoFlow estación de Energía 1800W"
+    "name":"EcoFlow Estación de Energía 1800W",
     "price":900,
     "image":"Image/EcoFlow1800.jpeg",
     "description":"Incluye cable de instalación Gratis"
-    }
+   }
 ]
