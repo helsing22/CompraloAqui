@@ -1,93 +1,119 @@
 [
-{
+  {
     "id": 1,
     "name": "Aspiradora Húmedo y Seco",
     "price": 100,
     "image": "Images/Aspiradora Húmedo y Seco.jpeg",
-    "description": "Aspiradora versátil para limpieza en húmedo y seco. Ideal para todo tipo de superficies."
+    "description": "Aspiradora versátil para limpieza en húmedo y seco. Ideal para todo tipo de superficies.",
+    "quantity": 10,
+    "status": "available"
   },
   {
     "id": 2,
     "name": "Bateria 12v 100ah Lifep04",
     "price": 300,
     "image": "Images/Bateria 12v 100ah Lifep04.jpeg",
-    "description": "Batería de fosfato de hierro y litio de alta capacidad. Larga vida útil y excelente rendimiento."
+    "description": "Batería de fosfato de hierro y litio de alta capacidad. Larga vida útil y excelente rendimiento.",
+    "quantity": 5,
+    "status": "available"
   },
   {
     "id": 3,
     "name": "Convertidor Inversor de onda sinusoidal pura de 1100 vatios 12v to 120v",
     "price": 200,
     "image": "Images/Convertidor Inversor de onda sinusoidal pura de 1100 vatios 12v to 120volt .jpeg",
-    "description": "Inversor de alta calidad que convierte 12V DC a 120V AC. Ideal para aplicaciones que requieren energía limpia."
+    "description": "Inversor de alta calidad que convierte 12V DC a 120V AC. Ideal para aplicaciones que requieren energía limpia.",
+    "quantity": 8,
+    "status": "available"
   },
   {
     "id": 4,
     "name": "Hella H1 12V 60 55W halogeno",
     "price": 10,
     "image": "Images/Hella H1 12V 60 55W halogeno 10.jpeg",
-    "description": "Bombilla halógena H1 de alta calidad para faros delanteros. Proporciona iluminación brillante y confiable."
+    "description": "Bombilla halógena H1 de alta calidad para faros delanteros. Proporciona iluminación brillante y confiable.",
+    "quantity": 15,
+    "status": "available"
   },
   {
     "id": 5,
-  "name": "Hella H4 12V 60 55W halogeno",
+    "name": "Hella H4 12V 60 55W halogeno",
     "price": 10,
     "image": "Images/Hella H4 12V 60 55W halogeno 10.jpeg",
-    "description": "Bombilla halógena H4 de doble filamento. Excelente rendimiento y durabilidad."
+    "description": "Bombilla halógena H4 de doble filamento. Excelente rendimiento y durabilidad.",
+    "quantity": 15,
+    "status": "available"
   },
   {
     "id": 6,
     "name": "Hidrolavadora Karcher modelo K2 (2000psi)",
     "price": 200,
     "image": "Images/Hidrolavadora Karcher modelo K2 (2000psi).jpeg",
-    "description": "Hidrolavadora compacta y potente con 2000 PSI. Perfecta para limpieza exterior e interior."
+    "description": "Hidrolavadora compacta y potente con 2000 PSI. Perfecta para limpieza exterior e interior.",
+    "quantity": 4,
+    "status": "available"
   },
   {
     "id": 7,
     "name": "Claxon Hella",
     "price": 50,
     "image": "Images/Klaxon Hella.jpeg",
-    "description": "Bocina de alta calidad con sonido potente y claro. Instalación sencilla y larga duración."
+    "description": "Bocina de alta calidad con sonido potente y claro. Instalación sencilla y larga duración.",
+    "quantity": 6,
+    "status": "available"
   },
   {
     "id": 8,
     "name": "Cargador de batería de 20 amperios, 12V/20A y 24V/10A. Litio, Lifepo4, plomo-ácido (AGM/Gel/SLA)",
     "price": 80,
     "image": "Images/Cargador de batería inteligente.jpeg",
-    "description": "Cargador de batería inteligente multifuncional. Compatible con diversos tipos de baterías y voltajes."
+    "description": "Cargador de batería inteligente multifuncional. Compatible con diversos tipos de baterías y voltajes.",
+    "quantity": 7,
+    "status": "available"
   },
   {
     "id": 9,
     "name": "Forros de asiento (cuero sintético)",
     "price": 120,
     "image": "Images/Forros de asiento.jpeg",
-    "description": "Forros de asiento de alta calidad en cuero sintético. Durables y fáciles de limpiar."
+    "description": "Forros de asiento de alta calidad en cuero sintético. Durables y fáciles de limpiar.",
+    "quantity": 9,
+    "status": "available"
   },
   {
     "id": 10,
     "name": "Reproductor Pioneer + 4 bocinas",
     "price": 180,
     "image": "Images/Reproductor Pioneer.jpeg",
-    "description": "Sistema de audio completo con reproductor Pioneer y 4 bocinas de alta fidelidad."
+    "description": "Sistema de audio completo con reproductor Pioneer y 4 bocinas de alta fidelidad.",
+    "quantity": 3,
+    "status": "available"
   },
   {
     "id": 11,
     "name": "Aspiradora Húmedo/Seco",
     "price": 180,
     "image": "Images/Aspiradora.jpeg",
-    "description": "Aspiradora versátil para limpieza en húmedo y seco. Ideal para todo tipo de superficies."
+    "description": "Aspiradora versátil para limpieza en húmedo y seco. Ideal para todo tipo de superficies.",
+    "quantity": 10,
+    "status": "available"
   },
   {
     "id": 12,
     "name": "Radio Satelital Sirius XM",
     "price": 90,
     "image": "Images/Radio Satelital.jpeg",
-    "description": "Radio satelital con acceso a múltiples canales de música, noticias y entretenimiento."
+    "description": "Radio satelital con acceso a múltiples canales de música, noticias y entretenimiento.",
+    "quantity": 12,
+    "status": "available"
   },
   {
     "id": 13,
-    "name":"Claxon / Cornetas",
+    "name": "Claxon / Cornetas",
     "price": 50,
-    "image":"Images/Car Horn Honda.jpeg",
-    "description":"Claxon para automoviles, Honda con Cable"
+    "image": "Images/Car Horn Honda.jpeg",
+    "description": "Claxon para automoviles, Honda con Cable",
+    "quantity": 6,
+    "status": "available"
   }
 ]

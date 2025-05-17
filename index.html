@@ -9,16 +9,21 @@
 <body>
   <header>
     <div class="logo">
-            <img src="Logo/ASL.jpeg" alt="Logo">
-        </div>
+      <img src="Logo/ASL.jpeg" alt="Logo">
+    </div>
+    <h1>¡Compralo aquí!</h1>
   </header>
-  
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
   </nav>
   
+  <!-- Contenedor de Login para Administrador y Cliente -->
+  <div id="login-container">
+    <button id="admin-login-btn">Ingreso Administrador</button>
+    <button id="client-login-btn">Ingreso Cliente</button>
+  </div>
   <!-- Formulario de selección de despacho -->
   <section id="shipping-section">
     <h2>¿Cómo deseas recibir tu pedido?</h2>
@@ -32,14 +37,12 @@
         Entregar en una Dirección
       </label>
       <div id="home-address" class="hidden">
-        
         <label>
-         Dirección: <input type="text" id="direccion" placeholder="Dirección">
+          Dirección: <input type="text" id="direccion" placeholder="Dirección">
         </label>
-     <label>
+        <label>
           Número: <input type="text" id="numero" placeholder="Movil">
-     </label>
-        
+        </label>
       </div>
     </form>
   </section>
@@ -61,24 +64,27 @@
     </div>
   </footer>
   
-<!-- Carrito de compras flotante (ventana completa) -->
-<div id="cart" class="hidden">
-  <div id="cart-header">
-    <h3>Carrito de Compras</h3>
-    <button id="minimize-btn" title="Minimizar">–</button>
+  <!-- Carrito de compras flotante (ventana completa) -->
+  <div id="cart" class="hidden">
+    <div id="cart-header">
+      <h3>Carrito de Compras</h3>
+      <button id="minimize-btn" title="Minimizar">–</button>
+    </div>
+    <div id="cart-content">
+      <div id="cart-items"></div>
+      <p id="cart-total"></p>
+      <button id="finalize-btn">Finalizar Compra</button>
+      <button id="empty-cart-btn">Vaciar Carrito</button>
+    </div>
   </div>
-  <div id="cart-content">
-    <div id="cart-items"></div>
-    <p id="cart-total"></p>
-    <button id="finalize-btn">Finalizar Compra</button>
-    <button id="empty-cart-btn">Vaciar Carrito</button>
-  </div>
-</div>
-<!-- Botón flotante visible cuando el carrito está minimizado -->
-<div id="minimized-cart" class="hidden">
-  <button id="restore-btn" title="Mostrar carrito">🛒</button>
-</div>
   
+  <!-- Botón flotante visible cuando el carrito está minimizado -->
+  <div id="minimized-cart" class="hidden">
+    <button id="restore-btn" title="Mostrar carrito">🛒</button>
+  </div>
+  
+  <!-- Se debe incluir la librería XLSX si se requiere exportar a Excel (opcional) -->
+  <!-- <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script> -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -20,28 +20,20 @@ body {
   }
 }
 /* Cabecera de la Página */
-
-
-
-
 header {
-    
-    background-color: #131921;
-    color: #fff;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background-color: #131921;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-
-
 .logo img {
-    width: 100px; /* Ajusta el tamaño del logo */
-    height: auto;
-    border-radius: 50%;
- }
-
+  width: 100px; /* Ajusta el tamaño del logo */
+  height: auto;
+  border-radius: 50%;
+}
 header h1 {
   font-size: 26px;
   margin: 0;
@@ -149,6 +141,15 @@ main {
   color: #565959;
   margin: 5px 0;
 }
+/* Indicadores de Stock */
+.in-stock {
+  color: #28a745;
+  font-weight: bold;
+}
+.out-of-stock {
+  color: #dc3545;
+  font-weight: bold;
+}
 /* Botón de Agregar al Carrito */
 .producto button {
   background-color: #F0C14B;
@@ -165,24 +166,67 @@ main {
   background-color: #E2B33C;
   transform: scale(1.02);
 }
+/* Panel de Administración */
+#admin-controls {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+#admin-controls h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+#admin-controls button {
+  background-color: #F0C14B;
+  color: #111;
+  border: 1px solid #A88734;
+  margin-right: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+#admin-controls button:hover {
+  background-color: #E2B33C;
+}
+/* Contenedor de Login (Administrador y Cliente) */
+#login-container {
+  margin: 20px;
+  text-align: center;
+}
+#login-container button {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#login-container button:hover {
+  background-color: #0056b3;
+}
 /* Pie de Página */
-/* Estilos para el footer */
 footer {
-    background-color: #f8f8f8;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
 }
 .whatsapp-icon {
-    font-size: 1.5rem;
-    color: #25d366;
-    margin-right: 0.5rem;
+  font-size: 1.5rem;
+  color: #25d366;
+  margin-right: 0.5rem;
 }
 .contact-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 /* Carrito de Compras - Ventana Completa */
 #cart {
@@ -213,7 +257,7 @@ footer {
 }
 #minimize-btn {
   box-sizing: border-box;
-    background: none;
+  background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
@@ -294,17 +338,14 @@ footer {
   header h1 {
     font-size: 22px;
   }
-  
   nav a {
     font-size: 14px;
     margin: 0 10px 5px;
   }
-  
   #shipping-section, main {
     margin: 10px;
     padding: 15px;
   }
-  
   #cart {
     width: 90%;
     right: 5%;
@@ -316,15 +357,12 @@ footer {
     font-size: 13px;
     margin: 0 8px;
   }
-  
   .producto h3 {
     font-size: 18px;
   }
-  
   .producto p {
     font-size: 13px;
   }
-  
   #finalize-btn,
   #empty-cart-btn {
     font-size: 13px;
